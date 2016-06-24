@@ -1,0 +1,298 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  			UWTHESIS.STY	
+%%			 version 2.4
+%%	      Style file for PhD theses (Mathematics)
+%%		 for the University of Wisconsin	
+%%		  for separate abstract page
+%%			    by
+%%		       Yvonne Nagel
+%%     (please remove my name from this file if you change it)
+%%		       April, 2001
+%%  		See accompanying input template
+%%		       UWTHESIS.TEX
+%%		   for usage instructions.
+%%  This style file was revised in January, 1995 because
+%%  of changes in the Graduate School's requirements.
+%%  Major changes:
+%%   1. \bigfonts defn removed because small sub- & superscripts are now O.K.
+%%   2. All page numbers are now in the upper right hand corner
+%%   3. Words on the first pages of each chapter now appear higher on the page
+%%   4. Title page stretched
+%%   5. June 17 revision: default numbering for equations changed to
+%%		chapno.eqnno.	plus Minor changes to margins 
+%%   6. Dec. '95 Changed defn of copyrightpage. Modified date so that
+%%      December theses have current year.
+%%   7. Feb. '98 Changed title formatting so that Math Symbols will
+%% 		 also be large and bold (possible with latex2e).
+%%		 Included new enviroment defns for Theorem, lemma,
+%%		 Corollary, etc. so that they will share the same
+%%		 counter and be reset for each chapter -i.e. Lemma 2.1
+%%		 will be followed by Proposition 2.2 then by Corollary 2.3
+%%		 rather than having a separate counter for each one.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+%\oddsidemargin 0.25in \evensidemargin 0.25in
+\oddsidemargin .25in 
+\marginparwidth 40pt \marginparsep 10pt
+\topmargin 0pt \headsep .3in
+\textheight 8.3in \textwidth 6.2in
+\brokenpenalty=10000
+\font\Bold=cmbx10 scaled \magstep3
+\renewcommand{\baselinestretch}{1.75}  % (for wider spacing)
+
+% Modify the standard definition of chapter to start higher on the
+% page and put the page number in the upper left hand corner
+
+%    ****************************************
+%    *        CHAPTERS AND SECTIONS         *
+%    ****************************************
+%
+
+\def\fixchapterheading{\vspace{-24pt}} %double spacing version
+%\def\fixchapterheading{\vspace{-19pt}} %single spacing version
+
+% \@makechapterhead {TEXT} : Makes the heading for the \chapter command.
+%
+
+\def\@makechapterhead#1{             % Heading for \chapter command
+  %\vspace*{50pt}                     % Space at top of text page.
+  { \parindent 0pt \raggedright 
+    \ifnum \c@secnumdepth >\m@ne     % IF secnumdepth > -1 THEN
+      \huge\bf \@chapapp{} \thechapter % Print 'Chapter' and number.
+      \par 
+      \vskip 20pt \fi                  % Space between number and title.
+    \Huge \bf                        % Title.
+    #1\par 
+    \nobreak                         % TeX penalty to prevent page break.
+    \vskip 40pt                      % Space between title and text.
+  } }
+
+% \@makeschapterhead {TEXT} : Makes the heading for the \chapter* command.
+%
+
+\def\@makeschapterhead#1{             % Heading for \chapter* command
+  %\vspace*{50pt}                     % Space at top of page.
+  { \parindent 0pt \raggedright 
+    \Huge \bf                        % Title.
+    #1\par 
+    \nobreak                         % TeX penalty to prevent page break.
+    \vskip 40pt                      % Space between title and text.
+  } }
+
+\def\chapter{\clearpage      % Starts new page.
+   %\thispagestyle{plain}    % Default Page style of chapter page is 'plain'
+   \thispagestyle{myheadings}  % We change it to top right hand corner
+			     % Don't use headings here to avoid running head	
+   \global\@topnum\z@        % Prevents figures from going at top of page.
+   \@afterindentfalse        % Suppresses indent in first paragraph.  Change
+   \secdef\@chapter\@schapter}   % to \@afterindenttrue to have indent.
+%% End of CHAPTER modifications
+
+\def\cl@chapter{\@elt{section}\@elt{footnote}}
+\def\thefigure{\@arabic\c@figure}
+\def\thetable{\@arabic\c@table}
+%  CHAPEQN.STY - added Dec. 95
+%  Use this command to change the numbering of equations 
+%  in your thesis.  LaTeX's default is to number equations
+%  sequentially through the whole document. This command
+%  will start the numbering afresh with each \chapter command
+%  This style file numbers equations in the form:
+%       chapterno.equationno
+\@addtoreset{equation}{chapter}
+\def\theequation{\thechapter.\arabic{equation}}
+
+%  Single counter for theorems and theorem-like environments:
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{assertion}[theorem]{Assertion}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{figger}[theorem]{Figure}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+
+
+%\def\@xfloat#1[#2]{\ifhmode \@bsphack\@floatpenalty -\@Mii\else
+%   \@floatpenalty-\@Miii\fi\def\@captype{#1}\ifinner
+%      \@parmoderr\@floatpenalty\z@
+%    \else\@next\@currbox\@freelist{\@tempcnta\csname ftype@#1\endcsname
+%       \multiply\@tempcnta\@xxxii\advance\@tempcnta\sixt@@n
+%       \@tfor \@tempa :=#2\do
+%                        {\if\@tempa h\advance\@tempcnta \@ne\fi
+%                         \if\@tempa t\advance\@tempcnta \tw@\fi
+%                         \if\@tempa b\advance\@tempcnta 4\relax\fi
+%                         \if\@tempa p\advance\@tempcnta 8\relax\fi
+%         }\global\count\@currbox\@tempcnta}\@fltovf\fi
+%    \global\setbox\@currbox\vbox\bgroup 
+%    \def\baselinestretch{1}\@normalsize
+%    \boxmaxdepth\z@
+%    \hsize\columnwidth \@parboxrestore}
+
+%
+
+%\long\def\@footnotetext#1{\insert\footins{\def\baselinestretch{1}\footnotesize
+%    \interlinepenalty\interfootnotelinepenalty 
+%    \splittopskip\footnotesep
+%    \splitmaxdepth \dp\strutbox \floatingpenalty \@MM
+%    \hsize\columnwidth \@parboxrestore
+%   \edef\@currentlabel{\csname p@footnote\endcsname\@thefnmark}\@makefntext
+%    {\rule{\z@}{\footnotesep}\ignorespaces
+%      #1\strut}}}
+      
+% Fix from GT (RPI, thesis.cls)  03-18-2007 ve.
+
+%\let\latex@xfloat=\@xfloat
+%\def\@xfloat #1[#2]{\latex@xfloat #1[#2]
+%\def\baselinestretch{1}\@normalsize \normalsize}
+
+
+%%%%%%%%% single / double spacing %%%%%%%%%
+%\def\singlespace{ \vskip \baselineskip \def\baselinestretch {1}
+%  \setspace@size \vskip -\baselineskip }
+%\def\endsinglespace{\par}
+%\def\spacing#1{ \par \begingroup \def\baselinestretch {#1} 
+%\setspace@size }
+%\def\endspacing{ \par \vskip \parskip \vskip \baselineskip
+%  \endgroup \vskip -\parskip \vskip -\baselineskip }
+%\def\doublespace{ \ifcase \@ptsize \relax
+%      \spacing{2.004}%  10pt
+%  \or \spacing{1.771}%  11pt
+%  \or \spacing{1.660}%  12pt
+%  \fi }
+%\let\enddoublespace=\endspacing
+
+
+
+\def\dept#1{\gdef\@dept{#1}}
+\def\degree#1{\gdef\@degree{#1}}
+\def\thesistype#1{\gdef\@thesistype{#1}}
+\def\submitdate#1{\gdef\@submitdate{#1}}
+\def\copyrightyear#1{\gdef\@copyrightyear{#1}} % \author, \title in report
+\def\@title{}\def\@author{}\def\@dept{}\def\@degree{}\def\@thesistype{}
+\def\@submitdate{\ifcase\the\month\or
+  January\or February\or March\or April\or May\or June\or
+  July\or August\or September\or October\or November\or December\fi
+  \space \number\the\year}
+%\ifnum\month=12
+%    \@tempcnta=\year \advance\@tempcnta by 1
+%    \edef\@copyrightyear{\number\the\@tempcnta}
+%\else
+    \def\@copyrightyear{\number\the\year}
+%\fi
+\newif\ifcopyright \newif\iffigurespage \newif\iftablespage
+% Uncomment these lines if you want to include these pages
+%\copyrighttrue 
+%\figurespagetrue 
+%\tablespagetrue
+
+\def\titlepage{%
+	\setcounter{page}{0}
+	\thispagestyle{empty}%
+	% Cleo wants the title page to start higher 
+	%\null\vskip1in%
+	\begin{center}
+		%{\LARGE\bf\expandafter{\@title}}
+		{\LARGE\Bold\uppercase\expandafter{\@title}}
+	\end{center}
+	\vfill
+	\begin{center}
+		\rm By\\
+		{\bf \@author}\\
+	\end{center}
+	\vfill
+	\begin{center}
+		{\sc A \expandafter{\@thesistype} submitted in partial 
+		fulfillment of the \\
+		requirements for the degree of}
+	\end{center}
+	\vfill
+	\begin{center}
+		{\sc \@degree \\
+		(\expandafter{\@dept})}
+        \end{center}
+	\vfill
+	\begin{center}
+		%{\bf \sc \expandafter{\@dept}}\\
+		at the \\
+		{\bf UNIVERSITY OF WISCONSIN -- MADISON }\\
+		%\@submitdate\\
+		\expandafter{\@copyrightyear}
+	\end{center}\vskip.5in\newpage}
+
+\def\copyrightpage{%
+	\setcounter{page}{0}
+	\thispagestyle{empty}%
+	\newpage\strut\phantom{Copyrightpage}
+	\vspace{6.5in}
+	\begin{center}
+		\copyright\ Copyright by \@author\ \@copyrightyear\\
+		All Rights Reserved
+	\end{center}
+	\vfill\newpage}
+
+\long\def\signature#1{%
+\begin{center}
+\begin{minipage}{4in}
+\parindent=0pt
+I certify that I have read this thesis and certify that in my opinion
+it is fully adequate, in scope and in quality, as a dissertation for the degree
+of Doctor of Philosophy.
+\par
+\vspace{.5in}
+\hbox to 4in{\hfil\shortstack{\vrule width 3in height 0.4pt\\#1}}
+\end{minipage}
+\end{center}}
+
+\def\beforepreface{
+	\pagenumbering{roman}
+	\pagestyle{myheadings}
+	\titlepage
+	\ifcopyright\copyrightpage\fi
+	%\signaturepage
+	}
+
+\def\prefacesection#1{%
+	\chapter*{#1}
+	\addcontentsline{toc}{chapter}{#1}}
+
+\def\afterpreface{\newpage
+	\tableofcontents
+	\newpage
+	\iftablespage
+		{\addvspace{10pt}
+		\let\saveaddvspace=\addvspace
+		\def\addvspace##1{}
+		\listoftables
+		\let\addvspace=\saveaddvspace}
+		\newpage
+	\fi
+	\iffigurespage
+		{\addvspace{10pt}
+		\let\saveaddvspace=\addvspace
+		\def\addvspace##1{}
+		\listoffigures
+		\let\addvspace=\saveaddvspace}
+		\newpage
+	\fi
+
+	\pagenumbering{arabic}
+	\pagestyle{myheadings}}
+
+\def\thebibliography#1{\chapter*{Bibliography\@mkboth
+ {BIBLIOGRAPHY}{BIBLIOGRAPHY}}
+	 \addcontentsline{toc}{chapter}{Bibliography}
+	 \list
+	 {[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth
+	 \advance\leftmargin\labelsep
+	 \usecounter{enumi}}
+	 \def\newblock{\hskip .11em plus .33em minus .07em}
+	 \sloppy\clubpenalty4000\widowpenalty4000
+	 \sfcode`\.=1000\relax}
+	\let\endthebibliography=\endlist
+ 
+% Start with pagestyle{myheadings} in case front matter isn't processed
+\pagestyle{myheadings}
+\makeatother

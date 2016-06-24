@@ -1,0 +1,189 @@
+%% ====================================================================%%
+%%	Sample Driver file for use with uwthesis.sty
+%% 	To print this document in the Math Dept, 
+%%	do the following:
+%%  		latex main
+%%		bibtex main
+%%		latex main (you may have to do this twice at this point)
+%%		dvipr main
+%%	To run this sa mple, you will also need the following files
+%%		abs.tex, ack.tex,
+%%		chap1.tex, chap2.tex, appendix.tex	
+%%		thesis.bib	
+%% ====================================================================%%
+%% 
+\documentclass[11pt]{report}
+
+%% If you want to  process the graphics examples in Chap 3 uncomment this line
+\usepackage{graphicx}
+%\usepackage[sorting=none,firstinits=true,url=false,doi=true]{biblatex}
+%\bibliography{/Users/warrick/Documents/MMB_Lab/Papers_and_Chapters/References/ReferenceLibrary}
+\usepackage[square, numbers, sort&compress]{natbib}
+
+\usepackage{StyleFiles/mythesis,StyleFiles/tgrind}
+\usepackage{fancyhdr}
+%% Use this if you only want to do Chap 1 things - basic stuff
+%% NOTE: the uwthesis style file should go AFTER all the other packages
+%% You may have conflicts if you call the amsthm.sty package after uwthesis.sty
+
+\usepackage{amssymb,StyleFiles/uwthesis}
+
+\graphicspath{
+{./Chapters/Introduction/Figures/}
+{./Chapters/Physics/Figures/}
+{./Chapters/FluxCapacitor/Figures/}
+{./Chapters/Concentrator/Figures/}
+{./Chapters/Oscillator/Figures/}
+{./Chapters/TumorCellAdhesion/Figures/}
+{./Chapters/Cardiac/Figures/}
+{./Chapters/RealTimeCM/Figures/}
+{./Chapters/FutureDirections/Figures/}
+{./Appendicies/DropletGeometry/Figures/}
+{./Appendicies/Diffusion/Figures/}
+{./Appendicies/Concentrator/Figures/}
+{./Appendicies/Oscillator/Figures/}
+{./Appendicies/DiffusionValve/Figures/}
+{./Appendicies/Cardiac/Figures/}
+{./Appendicies/RealTimeCM/Figures/}
+}
+
+\begin{document}
+
+\title{Microscale Principles and Tools for Studying Cellular Interactions}
+\author{Jay W. Warrick}
+
+%\inputpicturetrue  % By Jeff McGough. See uuguide and private thesis.sty
+%\inputpicturefalse % To NOT produce pictures, uncomment this line
+
+
+\degree{Doctor of Philosophy}
+\dept{Biomedical Engineering}
+\thesistype{dissertation}
+%% Starts page numbering as i, ii, etc.
+\beforepreface
+\prefacesection{Abstract}
+\input frontmatter/abs 
+\prefacesection{Acknowledgements}
+\input frontmatter/ack 
+\prefacesection{Papers}
+\input frontmatter/papers
+\listoffigures
+\listoftables
+
+\afterpreface
+
+%% Include the Chapters
+\include{Chapters/Introduction/Chapter}
+\include{Chapters/Physics/Chapter}
+\include{Chapters/FluxCapacitor/Chapter}
+\include{Chapters/Concentrator/Chapter}
+\include{Chapters/Oscillator/Chapter}
+\include{Chapters/TumorCellAdhesion/Chapter}
+\include{Chapters/Cardiac/Chapter}
+\include{Chapters/RealTimeCM/Chapter}
+\include{Chapters/FutureDirections/Chapter}
+\include{Chapters/Conclusion/Chapter}
+
+
+%% Start the appendices:
+\appendix       % Chapters, sections are now appendix style
+\include{Appendicies/DropletGeometry/Appendix}
+\include{Appendicies/Diffusion/Appendix}
+\include{Appendicies/Concentrator/Appendix}
+\include{Appendicies/Oscillator/Appendix}
+\include{Appendicies/DiffusionValve/Appendix}
+\include{Appendicies/Cardiac/Appendix}
+\include{Appendicies/RealTimeCM/Appendix}
+
+\bibliographystyle{abbrvnat}
+\begin{singlespacing}
+\bibliography{/Users/warrick/Documents/MMB_Lab/Papers_and_Chapters/References/ReferenceLibrary}
+\end{singlespacing}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

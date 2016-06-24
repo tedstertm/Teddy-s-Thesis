@@ -1,0 +1,115 @@
+%
+%Mon Nov 16 17:19:04 1992
+%Edit by Jeff McGough <mcgough@jeeves.math.utah.edu>
+%
+% This is where you place all of your definitions, co mmands, etc
+%
+%
+% You may not use these, but they will provide an example:
+%
+\usepackage{epstopdf}
+\DeclareGraphicsRule{.tif}{png}{.png}{ `convert #1 `dirname #1`/`basename #1 .tif`.png}
+\DeclareGraphicsRule{.tiff}{png}{.png}{ `convert #1 `dirname #1`/`basename #1 .tiff`.png}
+\usepackage{caption}
+\usepackage[nottoc]{tocbibind}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{hanging}
+\usepackage{setspace}
+\usepackage{lscape}
+\usepackage{movie15}
+\usepackage{StyleFiles/outlines}
+\usepackage[]{mcode}
+\usepackage[linkcolor=blue,linktocpage=true, colorlinks=true]{hyperref}
+\usepackage{float}
+\floatstyle{ruled}
+\newfloat{matlab}{thp}{lop}
+\floatname{matlab}{Matlab Code}
+\def\imagetop#1{\raisebox{1em}{\vtop{\null\hbox{#1}}}}
+
+\captionsetup{margin=10pt,font=small,labelfont=bf}
+
+% Common Terms
+\newcommand{\pp}{passive-pumping}
+\newcommand{\Pp}{Passive-pumping}
+\newcommand{\mc}{micro-culture}
+\newcommand{\Mc}{Micro-culture}
+\newcommand{\mf}{microfluidic}
+\newcommand{\Mf}{Microfluidic}
+\newcommand{\me}{microenvironment}
+\newcommand{\Me}{Microenvironment}
+\newcommand{\mel}{microenvironmental}
+\newcommand{\Mel}{Microenvironmental}
+\newcommand{\jex}{Je'Xperiment}
+
+
+% Greek Phrases
+\newcommand{\ie}{\emph{i.e.}}
+\newcommand{\eg}{\emph{e.g.}}
+\newcommand{\invitro}{\emph{in vitro}}
+\newcommand{\invivo}{\emph{in vivo}}
+\newcommand{\Invitro}{\emph{In vitro}}
+\newcommand{\Invivo}{\emph{In vivo}}
+\newcommand{\InVitro}{\emph{In Vitro}}
+\newcommand{\InVivo}{\emph{In Vivo}}
+\newcommand{\vs}{\emph{vs}}
+\newcommand{\etal}{\emph{et al}.}
+
+% Math Symbols
+\newcommand{\V}{\mathcal{V}}
+\newcommand{\R}{\mathcal{R}}
+\newcommand{\h}{\mathcal{H}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\p}{\mathcal{P}}
+
+% Units
+\newcommand{\Deg}{$^{\circ}$}
+\newcommand{\um}{[\textmu m]}
+\newcommand{\mmps}{[mm/s]}
+\newcommand{\mmSps}{[mm$^{2}$/s]}
+\newcommand{\umSps}{[\textmu m$^{2}$/s]}
+\newcommand{\uL}{[\textmu L]}
+\newcommand{\mmCps}{[mm$^{3}$/s]}
+\newcommand{\uLps}{[\textmu L/s]}
+\newcommand{\s}{[s]}
+\newcommand{\Npm}{[N/m]}
+
+% Genes and Proteins
+\newcommand{\NFKB}{NF-$\kappa$B}
+
+% Common Commands
+\newcommand{\nl}{\nolinebreak}
+\newcommand{\flow}{\nl)$^{+}\nl$}
+\newcommand{\noflow}{\nl)$^{-}\nl$}
+\newcommand{\oneway}{\nl\;$\Rightarrow$\;\nl}
+\newcommand{\para}{\nl\;$\|$\;\nl}
+
+
+\newtheorem{thrm}{Theorem}
+\newtheorem{lem}[thrm]{Lemma}
+\newtheorem{cor}[thrm]{Corollary}
+\newtheorem{formula}[thrm]{Formula}
+\newtheorem{rem}[thrm]{Remark}
+\newtheorem{defn}[thrm]{Definition}
+\newtheorem{exmpl}[thrm]{Example}
+
+\newif\ifinputpicture \inputpicturetrue
+
+% Use this command to input pictures, then control whether that
+% happens or not by saying \inputpicturetrue or \inputpicturefalse
+% in the preamble
+\newcommand{\inputpicture}[1]{%
+   \ifinputpicture \input{#1} \else \input{box.tex} \fi }
+
+%% Use this command to change the numbering of equations 
+%  in your thesis.  LaTeX's default is to number equations
+%  sequentially through the whole document. This command
+%  will start the numbering afresh with each \chapter command
+%  This style file numbers equations in the form:
+%       chapterno.equationno
+
+\@addtoreset{equation}{chapter}
+\def\theequation{\thechapter.\arabic{equation}}

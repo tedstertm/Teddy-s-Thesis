@@ -1,0 +1,38 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  		UW Thesis abstract style file
+%%		  for separate abstract page
+%%			   by
+%%		       Yvonne Nagel
+%%		      Jan. 11, 1995
+%%		Revised May, 1998 by Darren Parker
+%% 		   to force double spacing
+%%  		See accompanying file, abstract.tex
+%%		   for usage instructions.
+%%	     To remove pagenumbers, put \thispagestyle{empty}
+%%		in abstract.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\oddsidemargin 0.5in \evensidemargin 0.6in
+\marginparwidth 40pt \marginparsep 10pt
+\topmargin 0pt \headsep 0in
+\textheight 7.8in \textwidth 5.60in
+\parindent 0pt
+\brokenpenalty=10000
+\font\Bold=cmbx10 scaled \magstep2
+\renewcommand{\baselinestretch}{2}
+%\renewcommand{\baselinestretch}{1.75}  % (for wider spacing)
+%% Redefine the title:
+
+\def\@maketitle{%\newpage
+ \null
+ \begin{center}
+ {\Bold \@title \par} \vskip 1.5em 
+ {\large \lineskip .5em
+\begin{tabular}[t]{c}\@author 
+ \end{tabular}\par} 
+ \vspace{.25in}
+ Under the supervision of \professor \\
+ At the University of Wisconsin -- Madison \\
+ \end{center}
+ \par
+}
+
