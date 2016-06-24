@@ -13,7 +13,8 @@
 %% ====================================================================%%
 %% 
 \documentclass[11pt]{report}
-
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{helvet}
 %% If you want to  process the graphics examples in Chap 3 uncomment this line
 \usepackage{graphicx}
 %\usepackage[sorting=none,firstinits=true,url=false,doi=true]{biblatex}
@@ -49,8 +50,8 @@
 
 \begin{document}
 
-\title{Microscale Principles and Tools for Studying Cellular Interactions}
-\author{Jay W. Warrick}
+\title{Open Microfluidic Platforms for Tissue Culture}
+\author{Theodorus E. de Groot}
 
 %\inputpicturetrue  % By Jeff McGough. See uuguide and private thesis.sty
 %\inputpicturefalse % To NOT produce pictures, uncomment this line
@@ -77,14 +78,11 @@
 
 %% Include the Chapters
 \include{Chapters/Introduction/Chapter}
-% \include{Chapters/Physics/Chapter}
-% \include{Chapters/FluxCapacitor/Chapter}
-% \include{Chapters/Concentrator/Chapter}
-% \include{Chapters/Oscillator/Chapter}
-% \include{Chapters/TumorCellAdhesion/Chapter}
-% \include{Chapters/Cardiac/Chapter}
-% \include{Chapters/RealTimeCM/Chapter}
-% \include{Chapters/FutureDirections/Chapter}
+\include{Chapters/OpenMicrofluidicsPrinciples/Chapter}
+\include{Chapters/Device Fabrication/Chapter}
+\include{Chapters/OpenMicrofluidicsforTissueCulture/Chapter}
+\include{Chapters/MultipleMyelomaAdhesion/Chapter}
+\include{Chapters/Future Directions/Chapter}
 \include{Chapters/Conclusion/Chapter}
 
 
