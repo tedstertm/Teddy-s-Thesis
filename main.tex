@@ -17,9 +17,13 @@
 \usepackage{helvet}
 %% If you want to  process the graphics examples in Chap 3 uncomment this line
 \usepackage{graphicx}
-%\usepackage[sorting=none,firstinits=true,url=false,doi=true]{biblatex}
-%\bibliography{/Users/warrick/Documents/MMB_Lab/Papers_and_Chapters/References/ReferenceLibrary}
-\usepackage[square, numbers, sort&compress]{natbib}
+\usepackage[english]{babel}
+\usepackage[backend=bibtex]{biblatex}
+\addbibresource{library1.bib}
+\usepackage[nottoc]{tocbibind} %Adds "References" to the table of contents
+
+
+%\usepackage[square, numbers, sort&compress]{natbib}
 
 \usepackage{StyleFiles/mythesis,StyleFiles/tgrind}
 \usepackage{fancyhdr}
@@ -96,10 +100,13 @@
 % \include{Appendicies/Cardiac/Appendix}
 % \include{Appendicies/RealTimeCM/Appendix}
 
-\bibliographystyle{abbrvnat}
-\begin{singlespacing}
-% \bibliography{/Users/warrick/Documents/MMB_Lab/Papers_and_Chapters/References/ReferenceLibrary}
-\end{singlespacing}
+% \bibliographystyle{abbrvnat}
+% \begin{singlespacing}
+% \bibliography{./Bibliography/bib}
+% \bibliography{library1.bib}
+% \end{singlespacing}
+
+\printbibliography
 
 \end{document}
 
