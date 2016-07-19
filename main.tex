@@ -16,12 +16,14 @@
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{helvet}
 %% If you want to  process the graphics examples in Chap 3 uncomment this line
+
 \usepackage{graphicx}
 \usepackage[english]{babel}
+\usepackage{textgreek}
 \usepackage[backend=bibtex]{biblatex}
-\addbibresource{library1.bib}
+\addbibresource{mendeley.bib}
 \usepackage[nottoc]{tocbibind} %Adds "References" to the table of contents
-
+\usepackage[T1]{fontenc}
 
 %\usepackage[square, numbers, sort&compress]{natbib}
 
@@ -35,21 +37,8 @@
 
 \graphicspath{
 {./Chapters/Introduction/Figures/}
-% {./Chapters/Physics/Figures/}
-% {./Chapters/FluxCapacitor/Figures/}
-% {./Chapters/Concentrator/Figures/}
-% {./Chapters/Oscillator/Figures/}
-% {./Chapters/TumorCellAdhesion/Figures/}
-% {./Chapters/Cardiac/Figures/}
-% {./Chapters/RealTimeCM/Figures/}
-% {./Chapters/FutureDirections/Figures/}
-% {./Appendicies/DropletGeometry/Figures/}
-% {./Appendicies/Diffusion/Figures/}
-% {./Appendicies/Concentrator/Figures/}
-% {./Appendicies/Oscillator/Figures/}
-% {./Appendicies/DiffusionValve/Figures/}
-% {./Appendicies/Cardiac/Figures/}
-% {./Appendicies/RealTimeCM/Figures/}
+{./Chapters/HangingDroplet/Figures/}
+{./Appendicies/HangingDroplet/Figures/}
 }
 
 \begin{document}
@@ -82,16 +71,11 @@
 
 %% Include the Chapters
 \include{Chapters/Introduction/Chapter}
-\include{Chapters/OpenMicrofluidicsPrinciples/Chapter}
-\include{Chapters/Device Fabrication/Chapter}
-\include{Chapters/OpenMicrofluidicsforTissueCulture/Chapter}
-\include{Chapters/MultipleMyelomaAdhesion/Chapter}
-\include{Chapters/Future Directions/Chapter}
-\include{Chapters/Conclusion/Chapter}
-
+\include{Chapters/HangingDroplet/Chapter}
 
 %% Start the appendices:
 \appendix       % Chapters, sections are now appendix style
+\include{Appendicies/HangingDroplet/Appendix}
 % \include{Appendicies/DropletGeometry/Appendix}
 % \include{Appendicies/Diffusion/Appendix}
 % \include{Appendicies/Concentrator/Appendix}
@@ -103,7 +87,7 @@
 % \bibliographystyle{abbrvnat}
 % \begin{singlespacing}
 % \bibliography{./Bibliography/bib}
-% \bibliography{library1.bib}
+\bibliography{mendeley.bib}
 % \end{singlespacing}
 
 \printbibliography
