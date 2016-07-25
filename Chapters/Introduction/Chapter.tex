@@ -1,18 +1,63 @@
-\chapter{Chapter 1: Introduction}\label{Chap:Introduction}
-\textit{In vitro} techniques to model mammalian biology have long depended on the use of 2D cell culture in polystyrene dishes, while rat and mouse \textit{in vivo} models have been used to study whole organisms. These two tools, while at opposite ends of the spectrum of model complexity have provided us with much of what we know about human biology and have led to the development of countless therapies to treat a spectrum of human malignancies. Translating discoveries into useful medicine is incredibly difficult and new compounds entering FDA phase 1 clinical trials have a 10-15\% likelihood of approval \cite{Hay2014ClinicalDrugs}. Many of these compounds enter clinical trials after \textit{in vitro} or \textit{in vivo} models show initial success. The low success rates show that these models have inherent artifacts resulting in the failure to adequately reproduce appropriate human biological and physiological responses to many compounds and may call into question the relevance of these models to other biological phenomena they were used to study. Simple 2D models lack physiological context to be truly relevant, while many discoveries made in rodents do not transfer to humans due to differences in physiology. Issues with classical biological models have have not gone unnoticed and there have been great efforts to develop engineered \textit{in vitro} models that can replicate human tissues, organs, and even organ systems. The rationalization is that increased but controllable complexity will lead to increased relevance of the models and biological insights gained from studying them can be better applied to human medicine. I describe how engineered \textit{in vitro} models can be designed, fabricated, and used to investigate key components such as cell-cell, cell-matrix, and cell-drug interactions in the complex space of the tumor microenvironment (specifically multiple myeloma).  
+\chapter{Chapter 1: Introduction}
+\label{Chap:Introduction}
 
-\section{\textit{In vitro} tissue culture techniques}
+\textit{In vitro} techniques to model mammalian biology have long depended on the use of 2D cell culture in polystyrene dishes, while rat and mouse \textit{in vivo} models have been used to study whole organisms. These two tools, while at opposite ends of the spectrum of model complexity have provided us with much of what we know about human biology and have led to the development of countless therapies to treat a spectrum of human malignancies. Translating discoveries into useful medicine is incredibly difficult and new compounds entering FDA phase 1 clinical trials have a 10-15\% likelihood of approval \cite{Hay2014ClinicalDrugs}. Many of these compounds enter clinical trials after \textit{in vitro} or \textit{in vivo} models show initial success. The low success rates show that these models have inherent artifacts resulting in the failure to adequately reproduce appropriate human biological and physiological responses to many compounds and may call into question the relevance of these models to other biological phenomena they were used to study. Simple 2D models lack physiological context to be truly relevant, while many discoveries made in rodents do not transfer to humans due to differences in physiology. Issues with classical biological models have have not gone unnoticed and there have been great efforts to develop engineered \textit{in vitro} models that can replicate human tissues, organs, and even organ systems. The rationalization is that increased but controllable complexity will lead to increased relevance of the models and biological insights gained from studying them can be better applied to human medicine. I describe how engineered \textit{in vitro} models can be designed, fabricated, and used to investigate key components such as cell-cell, cell-matrix, and cell-drug interactions in the complex space of the tumor microenvironment.
+
+\section{Developing an appropriate \textit{in vitro} model}
+
+\textit{In vitro} models can range in complexity to a simple culture of cells in a polystyrene flask all the way to body-on-a-chip constructs that link organ and organoid cultures to form functional organ systems \cite{Esch2011TheStudies}. One of the most important considerations for designing an \textit{in vitro} model is choosing the appropriate complexity to work with. Complexity generally needs to align with the questions being asked of the model, for example, a researcher measuring motility of a cell line can usually rely on a simple scratch assay to get appropriate results \cite{liang2007vitro}. In this scenario, a more complex model, such as engineered organoid will likely obfuscate the results as more factors are integrated into the system and will the goal of the study (fibroblast motility) significantly more difficult to observe and measure. Conversely using a scratch assay to study cell motility in a much more complex scenario, such as cell extravasation across a blood vessel in tumor metastasis would be inadequate as it lacks the relevant context to the system being modeled. Unfortunately the appropriate level of complexity for the later scenario isn't entirely clear, which components will need to be included in the model to get an accurate biological representation are debatable \cite{Bouet2015InEnvironment., davies2015capturing, stock2016capturing, Munch2000UseInteractions.} and in some cases complexity that is known to give relevance to a model may need to be sacrificed for throughput for applications like drug screening \cite{Hickman2014Three-dimensionalVivo.}. However complicated the question of how complex to make a model, a solid understanding of the \textit{in vivo} microenvironment of the system being replicated and knowledge of the tools available to achieve the level of complexity desired are essential designing good models.
+
+\subsection{The \textit{in vivo} microenvironment}
+Microenvironment is a term used to describe all the cells, the structure, and the signals present in a given tissue niche. The types of cells and their interactions usually define the function of the tissue or microenvironment. For example the pancreatic islet microenvironment contains several cell types, most notably \textalpha \ and \textbeta \ cells responsible for producing hormones to regulate blood glucose and digestion \cite{Cabrera2006TheFunction.}. Cells in the microenvironment are structurally supported the extracellular matrix (ECM). The ECM provides for cell adhesion, regulates stiffness, and regulates cell behavior through interactions with cell-surface proteins \cite{Stamenkovic2003ExtracellularMetalloproteinases, Meredith1993TheFactor.}. The signaling component of the microenvironment consists of all proteins, peptides, and molecules that cells can interact with and that will modify cell behavior. These signals can be in the form of cell-cell interactions through CAMs, soluble peptides in the ECM, small molecules, or chemical stresses like pH and oxygen \cite{Kim2011ExtracellularReceptor.}. These components are intricately interconnected and both drive and define the microenvironment.
+The microenvironment is different between tissues, and between different states of tissue (healthy/diseased) so components will be unique to each microenvironment being modeled. A regulated microenvironment is important for maintaining homeostasis \cite{Nie2013Microenvironment-dependentRepair}, while the loss of regulation is linked to a number of diseases including cancer \cite{Malizia1985TheLymphocytes., Yip2011TheDisease, medema2011microenvironmental, Charbord1996EarlyMicroenvironment., Martin1995, Nie2013Microenvironment-dependentRepair}. The tumor microenvironment is perhaps most studied, it has been observed in many types of cancer that the microenvironment and the cancer cells themselves can act on each other to result in advancement of the disease and a more malignant phenotype \cite{Meads2008, Jun2006, Shain2001CellMDR., Seo2015}.
+
+\subsection{The \textit{in vitro} microenvironment}
+There are many tools and techniuqes available to replicate components of the \invivo\ microenvironment \invitro. Natural and synthetic structural materials are available to recreate various components of the ECM. Natural materials can be available as single components like collagen I or as mixtures that are collected from cell secretions that mimic specific microenvironmental ECM like Matrigel which is like a basement membrane. The biggest advantage of using natural ECM materials is that they are what is found \invivo\ cells already recognize binding sites on natural ECM and have the machinery to remodel and reconstruct them \cite{Mano2007NaturalTrends.}. ECM mixtures like Matrigel are well defined but can be variable fr
+
+
+Natural is good in this way, synthetic is good in another way. Modulate stiffness, binding sites, sites for cleavage. Mechanical stress and strain can be added \cite{Kim2013a}. Flow is important for differentiation. The more you add, the more complicated your model. It's about finding the right balance between relevance, complexity, and feasibility.
+
+
+\section{Microfluidics for constructing \invitro\ models}
+Microfluidics has achieved much success for constructing models. Thje combination of these tissue engineering techniques with t he precise control of flow, mechanical stresses, etc. is great for this. There's a ton of papers publcished each year that enable some cool new biological function using microfluidics, but most biology labs don't have these tools. There's a disconnect with what engineers build and what biologists use. The black box model is good for biologists, but that takes considerable development. These platforms are rarely designed for biologists.  Maybe a metaanalysis of LOC papers and how many have a biological collaborator. Microfluidic platforms are difficult to use, biologists use what they use because they have got good dat ain the past from it, they have no reason to switch, especially to a technology that may be hard to use.
+
+\subsection{Materials for microfluidic cell culture}
+
+PDMS has been used as the primary material for making microfluidic devices since forever. PDMS is very sueful as a prototying tool for engineers since it is realively easy to create devices on small scales. PDMS has a number of issues when dealing with cell culture. WHen they made uh mistake, 
+
+PDMS is not a material that is familiar to biologists, it may have its own unique artifacts that PS simply does not. Some of the factors that may contribute to PDMS's biological artifacts are known such as a very hydrophobic surface or the presence of uncrosslinked monomers and oligimers in solution 
+
+Polydimethylsiloxane (PDMS) has been a choice material for engineers to prototype microchannels and microfluidic devices for biological uses \cite{Sia2003a}. PDMS has many great p
+
+Now talk about thermoplastics because biologists use them
+
+
+\subsection{Microfluidic platform operation}
+Syringe pumps, peristaltic pump, passive pumping
+
+\subsection{Device fabrication}
+
+
+\section{Multiple myeloma}
+MM is kind of difficult to study. It's crazy complex
+
+
+\subsection{MM microenvironment}
+All the different variables
+
+
+\subsection{MM engineering}
+
+Talk about chorom and edmond's work being a place where they had good collaboration 
+
+Developing tools to increase the relevance of the model without increasing the complexity or barrier to entry for it. 
 
 
 
-\section{Microfluidics for Tissue culture}
-
-\begin{figure}[ht] %DONE
-\centering
-\includegraphics[width=4.5in]{/Test.png}
-\caption{\textbf{The two-well hanging droplet device, operation, and capabilities}. (A) Two 8- device arrays of the two-well hanging droplet device with a close-up image and rendered-model of a single device. (B) Operation of a filled device containing cells, when fluid is removed or added through the interface well, volume of the culture well is changed with minimal disturbance to the culture. (C) Schematic of a dynamic coculutre experiment performed by combining two tissues in the hanging droplet device then separating the tissues.}
-\label{figure:test}
-\end{figure}
 
 
 
+
+Context is the main consideration for designing a good \textit{in vitro} tissue culture model. Context is what makes a model appropriate for its designed purpose. A contextually appropriate model should include the relevant components of the biological system being replicated and be designed to the data relevant to the questions being asked of the model to be collected and interpretable. Context is the balance between complexity and practicality.
+
+\subsection{Components of the \textit{in vitro} microenvironment}

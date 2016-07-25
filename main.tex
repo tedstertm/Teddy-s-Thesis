@@ -12,7 +12,7 @@
 %%		thesis.bib	
 %% ====================================================================%%
 %% 
-\documentclass[11pt]{report}
+\documentclass[12pt]{report}
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{helvet}
 %% If you want to  process the graphics examples in Chap 3 uncomment this line
@@ -20,10 +20,11 @@
 \usepackage{graphicx}
 \usepackage[english]{babel}
 \usepackage{textgreek}
-\usepackage[backend=bibtex]{biblatex}
+\usepackage[backend=bibtex,sorting=none, style=numeric]{biblatex}
 \addbibresource{mendeley.bib}
 \usepackage[nottoc]{tocbibind} %Adds "References" to the table of contents
 \usepackage[T1]{fontenc}
+\usepackage{placeins}
 
 %\usepackage[square, numbers, sort&compress]{natbib}
 
@@ -34,11 +35,14 @@
 %% You may have conflicts if you call the amsthm.sty package after uwthesis.sty
 
 \usepackage{amssymb,StyleFiles/uwthesis}
+\overfullrule=2cm
 
 \graphicspath{
 {./Chapters/Introduction/Figures/}
+{./Chapters/Micromilling/Figures}
 {./Chapters/HangingDroplet/Figures/}
 {./Appendicies/HangingDroplet/Figures/}
+{./Appendicies/OpenMicrofluidics/Figures/}
 }
 
 \begin{document}
@@ -46,7 +50,7 @@
 \title{Open Microfluidic Platforms for Tissue Culture}
 \author{Theodorus E. de Groot}
 
-%\inputpicturetrue  % By Jeff McGough. See uuguide and private thesis.sty
+\inputpicturetrue  % By Jeff McGough. See uuguide and private thesis.sty
 %\inputpicturefalse % To NOT produce pictures, uncomment this line
 
 
@@ -71,24 +75,21 @@
 
 %% Include the Chapters
 \include{Chapters/Introduction/Chapter}
+\include{Chapters/Micromilling/Chapter}
 \include{Chapters/HangingDroplet/Chapter}
+\include{Chapters/OpenMicrofluidics/Chapter}
+
 
 %% Start the appendices:
 \appendix       % Chapters, sections are now appendix style
 \include{Appendicies/HangingDroplet/Appendix}
-% \include{Appendicies/DropletGeometry/Appendix}
-% \include{Appendicies/Diffusion/Appendix}
-% \include{Appendicies/Concentrator/Appendix}
-% \include{Appendicies/Oscillator/Appendix}
-% \include{Appendicies/DiffusionValve/Appendix}
-% \include{Appendicies/Cardiac/Appendix}
-% \include{Appendicies/RealTimeCM/Appendix}
+\include{Appendicies/OpenMicrofluidics/Appendix}
 
-% \bibliographystyle{abbrvnat}
-% \begin{singlespacing}
-% \bibliography{./Bibliography/bib}
-\bibliography{mendeley.bib}
-% \end{singlespacing}
+
+%\bibliographystyle{abbrvnat}
+%\begin{singlespacing}
+%\bibliography{mendeley.bib}
+%\end{singlespacing}
 
 \printbibliography
 
