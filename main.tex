@@ -30,17 +30,25 @@
 
 \usepackage{StyleFiles/mythesis,StyleFiles/tgrind}
 \usepackage{fancyhdr}
-%% Use this if you only want to do Chap 1 things - basic stuff
-%% NOTE: the uwthesis style file should go AFTER all the other packages
-%% You may have conflicts if you call the amsthm.sty package after uwthesis.sty
+%\usepackage[none]{hyphenat}
+\usepackage{chngcntr}
+\usepackage[final]{pdfpages}
+\pretolerance=3500
 
-\usepackage{amssymb,StyleFiles/uwthesis}
-\overfullrule=2cm
 
+
+% Use this if you only want to do Chap 1 things - basic stuff
+% NOTE: the uwthesis style file should go AFTER all the other packages
+% You may have conflicts if you call the amsthm.sty package after uwthesis.sty
+
+\usepackage{amssymb}
+\usepackage{StyleFiles/uwthesis}
 \graphicspath{
 {./Chapters/Introduction/Figures/}
 {./Chapters/Micromilling/Figures}
 {./Chapters/HangingDroplet/Figures/}
+{./Chapters/OpenMicrofluidics/Figures/}
+{./Chapters/Stacks/Figures/}
 {./Appendicies/HangingDroplet/Figures/}
 {./Appendicies/OpenMicrofluidics/Figures/}
 }
@@ -74,24 +82,26 @@
 \afterpreface
 
 %% Include the Chapters
+\counterwithin{figure}{chapter}
+
 \include{Chapters/Introduction/Chapter}
 \include{Chapters/Micromilling/Chapter}
-\include{Chapters/HangingDroplet/Chapter}
 \include{Chapters/OpenMicrofluidics/Chapter}
+\include{Chapters/HangingDroplet/Chapter}
+\include{Chapters/Stacks/Chapter}
 
 
 %% Start the appendices:
 \appendix       % Chapters, sections are now appendix style
-\include{Appendicies/HangingDroplet/Appendix}
+\counterwithin{figure}{chapter}
 \include{Appendicies/OpenMicrofluidics/Appendix}
+\include{Appendicies/HangingDroplet/Appendix}
 
-
-%\bibliographystyle{abbrvnat}
-%\begin{singlespacing}
-%\bibliography{mendeley.bib}
-%\end{singlespacing}
-
+\begin{singlespacing}
+\setlength\bibitemsep{2.0\itemsep}
 \printbibliography
+\end{singlespacing}
+
 
 \end{document}
 
