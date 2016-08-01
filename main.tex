@@ -15,12 +15,15 @@
 \documentclass[12pt]{report}
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{helvet}
+
 %% If you want to  process the graphics examples in Chap 3 uncomment this line
 
 \usepackage{graphicx}
 \usepackage[english]{babel}
 \usepackage{textgreek}
 \usepackage[backend=bibtex,sorting=none, style=numeric]{biblatex}
+\setlength\bibitemsep{0.5\baselineskip}
+
 \addbibresource{mendeley.bib}
 \usepackage[nottoc]{tocbibind} %Adds "References" to the table of contents
 \usepackage[T1]{fontenc}
@@ -67,17 +70,19 @@
 \thesistype{dissertation}
 %% Starts page numbering as i, ii, etc.
 \beforepreface
+\input frontmatter/ded
+\prefacesection{Acknowledgements}
+\input frontmatter/ack 
 \prefacesection{Abstract}
 \input frontmatter/abs 
-\prefacesection{Acknowledgements}
 
 
-
-\input frontmatter/ack 
 %\prefacesection{Papers}
 % \input frontmatter/papers
+
 \listoffigures
-\listoftables
+
+%\listoftables
 
 \afterpreface
 
@@ -86,21 +91,22 @@
 
 \include{Chapters/Introduction/Chapter}
 \include{Chapters/Micromilling/Chapter}
-\include{Chapters/OpenMicrofluidics/Chapter}
 \include{Chapters/HangingDroplet/Chapter}
+\include{Chapters/OpenMicrofluidics/Chapter}
 \include{Chapters/Stacks/Chapter}
+\include{Chapters/Conclusion/Chapter}
 
 
 %% Start the appendices:
 \appendix       % Chapters, sections are now appendix style
 \counterwithin{figure}{chapter}
-\include{Appendicies/OpenMicrofluidics/Appendix}
 \include{Appendicies/HangingDroplet/Appendix}
+\include{Appendicies/OpenMicrofluidics/Appendix}
 
 \begin{singlespacing}
-\setlength\bibitemsep{2.0\itemsep}
 \printbibliography
 \end{singlespacing}
+
 
 
 \end{document}
